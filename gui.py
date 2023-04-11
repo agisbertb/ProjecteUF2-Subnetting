@@ -1,13 +1,9 @@
-from tkinter import END,Tk, Canvas, Entry,Button, PhotoImage
+from tkinter import END, Tk, Canvas, Entry, Button, PhotoImage, messagebox
 from funcions import *
-from tkinter import messagebox
 
-# Sortir de la aplicació
-def salir():
-    window.destroy()
-
+# Funció per cridar totes les funcions
 def calcular():
-#Control d'errors
+# Control d'errors
     if adreça.get() == "":
         messagebox.showinfo("Error", "No has introduit cap adreça IP")
         return
@@ -23,7 +19,6 @@ def calcular():
         messagebox.showinfo("Error", "La mascara ha de ser un numero")
         return
     
-
     adreçaip = adreça.get()
     mascaraip = mascara.get()
     canvas.itemconfig(ladressip, text=adreçaip)
@@ -44,6 +39,7 @@ def calcular():
     canvas.itemconfig(latip, text= tipus_ip(adreçaip))
     canvas.itemconfig(laclass, text= classe_ip(adreçaip))
 
+# Funció per netejar els camps de l'aplicació
 def netejar():
     canvas.itemconfig(ladressip, text="")
     canvas.itemconfig(lmascaraip, text="")
@@ -64,7 +60,11 @@ def netejar():
     canvas.itemconfig(latip, text="")
     mascara.delete(0, END)
     adreça.delete(0, END)
-    
+
+# Funció per sortir de l'aplicació
+def salir():
+    window.destroy()
+
 window = Tk()
 window.geometry("1024x800")
 window.configure(bg = "#FFFFFF")
