@@ -1,7 +1,7 @@
 <h1 align="center"> Projecte UF2 - Joc del Penjat amb Python </h1>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/91249151/226197310-98fb1069-80df-4af6-b36b-cff0eb986c94.png">
+  <img src="https://user-images.githubusercontent.com/91249151/231252523-faec4f27-a0c4-462e-aeee-0a6ab7075090.png">
 </p>
 
 ## Taula de continguts 📑
