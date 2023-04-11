@@ -85,12 +85,12 @@ image_6 = canvas.create_image(512.0, 38.0, image=image_image_6)
 
 entry_image_1 = PhotoImage(file=("img/entry_1.png"))
 entry_bg_1 = canvas.create_image(348.0, 188.0, image=entry_image_1)
-adreça = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0)
+adreça = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center")
 adreça.place(x=248.0, y=168.0, width=200.0, height=38.0)
 
 entry_image_2 = PhotoImage(file=("img/entry_2.png"))
 entry_bg_2 = canvas.create_image(678.0, 188.0, image=entry_image_2)
-mascara = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0)
+mascara = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center")
 mascara.place(x=578.0, y=168.0, width=200.0, height=38.0)
 
 button_image_1 = PhotoImage(file=("img/button_1.png"))
