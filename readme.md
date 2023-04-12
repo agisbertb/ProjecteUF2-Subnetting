@@ -1,4 +1,4 @@
-<h1 align="center"> Projecte UF2 - Joc del Penjat amb Python </h1>
+<h1 align="center"> Projecte UF2 - Calculadora IPV4 </h1>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/91249151/231252523-faec4f27-a0c4-462e-aeee-0a6ab7075090.png">
