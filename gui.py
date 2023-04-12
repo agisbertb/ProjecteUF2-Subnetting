@@ -1,8 +1,14 @@
+# ============ SECCIÓ D'IMPORTACIÓ ============
+
 from tkinter import END, Tk, Canvas, Entry, Button, PhotoImage, messagebox
 from funcions import *
 
+# ============ SECCIÓ DE FUNCIONS DE LA PART GRÀFICA ============
+
 # Funció per cridar totes les funcions
+
 def calcular():
+
 # Control d'errors
     if adreça.get() == "":
         messagebox.showinfo("Error", "No has introduit cap adreça IP")
@@ -19,7 +25,8 @@ def calcular():
         messagebox.showinfo("Error", "La mascara ha de ser un numero")
         return
     
-#Control d'errors de la ip
+# Control d'errors de l'entrada de l'adreça ip
+
     try:
         ip = adreça.get().split('.')
         if len(ip) != 4:
@@ -54,6 +61,7 @@ def calcular():
     canvas.itemconfig(laclass, text= classe_ip(adreçaip))
 
 # Funció per netejar els camps de l'aplicació
+
 def netejar():
     canvas.itemconfig(ladressip, text="")
     canvas.itemconfig(lmascaraip, text="")
@@ -76,8 +84,11 @@ def netejar():
     adreça.delete(0, END)
 
 # Funció per sortir de l'aplicació
-def salir():
+
+def sortir():
     window.destroy()
+
+# ============ SECCIÓ DE LA PART GRÀFICA ============
 
 window = Tk()
 window.geometry("1024x800")
@@ -129,7 +140,7 @@ button_2 = Button(image=button_image_2, borderwidth=0, highlightthickness=0, com
 button_2.place(x=437.0, y=232.0, width=150.0, height=40.0)
 
 button_image_3 = PhotoImage(file=("img/button_3.png"))
-button_3 = Button(image=button_image_3, borderwidth=0, highlightthickness=0, command= salir ,relief="flat")
+button_3 = Button(image=button_image_3, borderwidth=0, highlightthickness=0, command= sortir ,relief="flat")
 button_3.place(x=639.0, y=232.0, width=150.0, height=40.0)
 
 image_image_7 = PhotoImage(file=("img/image_7.png"))
@@ -260,4 +271,3 @@ lhostbroadcastbin = canvas.create_text(x,y, text="", fill="black", font = ("Balo
 
 window.resizable(False, False)
 window.mainloop()
-
