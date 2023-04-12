@@ -23,6 +23,10 @@ Aquest projecte és una aplicació en mode gràfic programat amb Python, tracta 
 apt install python3
 ```
 
+```bash
+apt install python3-tk
+```
+
 ## Guia usuari📖
 ---
 
