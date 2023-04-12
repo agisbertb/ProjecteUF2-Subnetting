@@ -19,6 +19,20 @@ def calcular():
         messagebox.showinfo("Error", "La mascara ha de ser un numero")
         return
     
+#Control d'errors de la ip
+    try:
+        ip = adreça.get().split('.')
+        if len(ip) != 4:
+            messagebox.showinfo("Error", "La adreça IP ha de tenir 4 octets")
+            return
+        for i in ip:
+            if int(i) < 0 or int(i) > 255:
+                messagebox.showinfo("Error", "La adreça IP ha de tenir numeros entre 0 i 255")
+                return
+    except:
+        messagebox.showinfo("Error", "La adreça IP ha de ser un numero")
+        return
+        
     adreçaip = adreça.get()
     mascaraip = mascara.get()
     canvas.itemconfig(ladressip, text=adreçaip)
@@ -96,13 +110,15 @@ image_6 = canvas.create_image(512.0, 38.0, image=image_image_6)
 
 entry_image_1 = PhotoImage(file=("img/entry_1.png"))
 entry_bg_1 = canvas.create_image(348.0, 188.0, image=entry_image_1)
-adreça = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center")
+adreça = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center",validate='key')
 adreça.place(x=248.0, y=168.0, width=200.0, height=38.0)
+adreça['validatecommand'] = (adreça.register(limit_input_ip), '%P')
 
 entry_image_2 = PhotoImage(file=("img/entry_2.png"))
 entry_bg_2 = canvas.create_image(678.0, 188.0, image=entry_image_2)
-mascara = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center")
+mascara = Entry(bd=0, bg="#D9D9D9", fg="#000716", highlightthickness=0, justify="center", validate='key')
 mascara.place(x=578.0, y=168.0, width=200.0, height=38.0)
+mascara['validatecommand'] = (mascara.register(limit_input_masc), '%P')
 
 button_image_1 = PhotoImage(file=("img/button_1.png"))
 button_1 = Button(image=button_image_1, borderwidth=0, highlightthickness=0, command= calcular, relief="flat")

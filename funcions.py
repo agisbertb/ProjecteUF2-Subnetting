@@ -1,3 +1,18 @@
+# Funció per limitar una entrada per teclat per la mascara cdir
+def limit_input_masc(text):
+    if len(text) > 2:
+        return False
+    return True
+
+# Funció per limitar una entrada per teclat per la ip
+def limit_input_ip(text):
+    if len(text) > 15:
+        return False
+    return True
+
+
+
+
 #Mascara Cidr a decimal
 def cidr_a_decimal(cidr):
     global decimal_mask
@@ -7,7 +22,7 @@ def cidr_a_decimal(cidr):
     decimal_mask = '.'.join(octets_decimal)
     return decimal_mask
 
-#Mascara de red decimal a binario
+#Mascara de la xarxa amb ip i cidr
 def decimal_a_binari(decimal):
     octets = decimal.split('.')
     octets_bin = [bin(int(octet))[2:].zfill(8) for octet in octets]
@@ -21,7 +36,7 @@ def decimal_a_wildcard(decimal):
     wildcard_mask = '.'.join(octets_wildcard)
     return wildcard_mask
 
-#Ip de red a partir de ip y mascara
+#Ip de la xarxa amb ip i mascara
 def ip_de_xarxa(ip,mask):
     ip_octets = ip.split('.')
     mask_octets = mask.split('.')
@@ -29,7 +44,7 @@ def ip_de_xarxa(ip,mask):
     network_address = '.'.join(network_octets)
     return network_address
 
-#Ip de broadcast a partir de ip y mascara
+#Ip de broadcast amb ip i mascara
 def broadcast_address(ip_address, subnet_mask):
     ip_octets = ip_address.split('.')
     mask_octets = subnet_mask.split('.')
@@ -84,23 +99,21 @@ def classe_ip(adreçaip):
         return 'D'
     elif int(ip_octets[0]) <= 255:
         return 'E'
-    else:
-        return 'Error'
+
 
 #Funcio per trobar el tipus de la ip
-
 def tipus_ip(adreçaip):
     """
     Determina si una dirección IP es privada o no.
     """
-    octetos = adreçaip.split('.')
-    if len(octetos) != 4:
+    octets = adreçaip.split('.')
+    if len(octets) != 4:
         return False
-    if octetos[0] == '10':
+    if octets[0] == '10':
         return 'Privada'
-    elif octetos[0] == '172' and 16 <= int(octetos[1]) <= 31:
+    elif octets[0] == '172' and 16 <= int(octets[1]) <= 31:
         return 'Privada'
-    elif octetos[0] == '192' and octetos[1] == '168':
+    elif octets[0] == '192' and octets[1] == '168':
         return 'Privada'
     else:
         return 'Publica'
